@@ -28,6 +28,13 @@
     -> Não faça alterações direto no ambiente de producação, a menos que você quiera morrer depois
     -> Faça MVC quando necessario, dividir, Layout, Funções e Banco, cada um tem de funcionar por si mesmo e sejam peças destacais 
 
+#Nomeacao de arquivos
+    -> Evite espaços
+    -> Evite acentuacao
+    -> Padronize a escrita(Por mim sempre use letra minuscula), sistemas normalmente são case-sensitive
+    -> Entre o use de - e _ para escrever nomes de arquivos, use -, pois os motores de busca iram entender que - é uma continuacao de palavra e _ não será traduzido assim
+    
+
 #Para todas listas abaixo
     -> Tratamento de erros é essencial 
     -> Crie funcoes para facilitar a vida
@@ -145,3 +152,4 @@
     -> https://medium.com/@gabrielmoraes_81219/boas-pr%C3%A1ticas-para-programa%C3%A7%C3%A3o-web-html-e-css-c2a62f1b9560
     -> http://br.phptherightway.com/
     -> https://www.w3.org/
+    -> https://developer.mozilla.org/pt-BR/docs/Aprender/Getting_started_with_the_web/lidando_com_arquivos
