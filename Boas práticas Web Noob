@@ -1,0 +1,147 @@
+#Desenvolvimento com boas práticas para WEB a nível NOOB
+
+#Juntei tudo que achei util e que realmente são boas práticas em um guia básico para iniciantes, como sou Noob, vou tentar deixar isso aqui o mais fácil possivel
+
+#Estou abrangindo linguagens que tenho até certo ponto de conhecimento, estão listadas abaixo:
+    -> HTML
+    -> CSS
+    -> JS
+    -> PHP
+    -> Python
+
+#Exemplos de codes estaram disponiveis ao lado desse arquivo
+
+#Boas práticas envolvem:
+    -> Reciclagem de código
+    -> Facil manuntenção
+    -> Divisão de trabalho
+    -> Código limpo
+
+#Boas práticas seguidas por mim mesmo:
+    -> Sempre comentar determinados trechos
+    -> Criar dois ambientes, um para o desenvolvimento e um para a producao
+        """
+        O de desenvolvimento pode descer a baiana, contanto que nao afete o de producao esta otimo, o de producao, sempre o entregue da forma mais otimizada possivel, lembrando que você pode usar minificacao  de code para ambiente de producao, diminuindo a quantidade de linhas e espacos e necessariamente diminuindo o tamanho fisico da pagina e consumo de processamento
+        """
+    -> Versionamento é uma ótima pedida para evitar perder o code e tem sempre uma versao em funcionamento e de testes
+    -> Acessbilidade caminha junto de boas práticas 
+    -> Não faça alterações direto no ambiente de producação, a menos que você quiera morrer depois
+    -> Faça MVC quando necessario, dividir, Layout, Funções e Banco, cada um tem de funcionar por si mesmo e sejam peças destacais 
+
+#Para todas listas abaixo
+    -> Tratamento de erros é essencial 
+    -> Crie funcoes para facilitar a vida
+    -> Ache um ponto de equilibrio entre complexidade de legibilidade
+
+#Sobre comentarios 
+    -> Escreva comentarios curtos e explicativos
+    -> Escreva de preferencia num idioma de entedimento geral da equipe
+    -> Sempre que puder escreva em Ingles por ser uma lingua universal
+    -> Codigos em producao não precisao de comentarios em SI, porém é importante se ter em ambientes de teste
+
+#Modelos MVC e indipendencia
+    -> MVC é model, viewer e controle, isso é, layout, funcoes e banco, os tres devem trabalhar saparados de forma funcional e quando juntos formem uma aplicacao
+    -> Toda camada deve funcionar independentemente, isso pode ser feitos com o uso de chamadas e funcoes
+
+#HTML: 
+    -> Use as benditas tags de construção, não use somente o <div>, use <nav>, <footer>, <header>, <body>, entre outras mais, más porque disso? Simples, os robos de pesquisa Web leem a estrutura do site para a apresentação de resultados na Web, se não tiver bem estruturado, ela não entende e portanto não trás o resultado
+    
+    -> Sempre idente o html, isso facilita entender de onde começa e acaba determinada marcação
+        Ex:
+            <div>
+                <a href=""></a>
+            </div>
+
+
+    -> Use "" nos paramentros de uma tag, isso é norma da SGML(Standard Generalized Markup Language)
+    
+    -> Nunca use css inline
+        Ex:
+            <p style=""></p>
+        """
+            É fácil? É!
+            É prático? É!
+            É horrivel de dar manuntenção? É!
+            
+            O fato que o css fica na linha, para você achar isso depois é um saco, se você quiser mudar alguma coisa, você só vai alterar a determinada linha, imagina alterar mais de 1000 linhas por causa que todas estão dessa forma
+        """
+
+    -> Deixe sempre o código o mais simples e completo possível! Más como fazer isso? Boa sorte, tudo depende do seu projeto, más lembre-se, sempre deixe ele a ponto da equipe ou você mesmo ter a capacidade de enteder ele no futuro
+
+#CSS:
+    -> Respeite o WC3, o link do site vai estar no fim do documento
+
+    -> Evite o use de CSS com ID, mas porque? Simples, o ID de uma tag unica dentro de uma página, significa que você somente fara um css para determinada tag, isso é ruim para a reciclagem, sempre use class, por que class é reutilizavel
+
+    -> Evite code css redundante, isso evita mais linhas de css e facilita a manuntenção, porém você tem que ter uma boa idéia de herança
+        Ex:
+
+        #CSS
+        .class-para-div {
+            color: red;
+        }
+        .fonte-para-div {
+            color: red;
+        }
+
+        #HTML
+        <div class="class-para-div">
+            <p class="fonte-para-div">Teste</p>
+        </div>
+
+        """
+        O que está acontecendo acima? Simples, você está aplicando duas vezes a cor vermelha nas letras, isso da redundancia inutel ao code, só aumenta o peso no fim, o div ja possui a cor, então que estiver dentro desse div vai herda-la
+        """
+
+    -> Simplifique os Hexadecimais nas cores.
+        Ex: 
+            color: #000000 -> color: #000;
+
+    -> Evite o use de !important no css, más porque? Simples, este cara obriga você a seguir uma regra no css de qualquer forma, manutenção nisso aqui é chato, porque se você obriga alguma hora, significa que tem algo ai
+
+    -> Pense em mobile antes de desktop, o motivo é simples, a mais gente usando o celular que o PC hoje em dia, e o poder de processamento de um mobile é inferior a de um desktop, então deixe sempre uma página otimizada para mobile 
+
+    -> Não utilize valores fixos em tamanho de componetes, "fica bonito no seu navegador mas no meu não", você vai escutar muito se fizer isso
+
+    -> Use valores flexiveis para tamanhos de objetos, como %, entre outras mais
+
+    -> Evite usar caracteristicas em classes como "caixa-laranja", o motivo é que quando no futuro possa ser mudado a cor dessa caixa, mas nao atualizado a class, pode dar problemas de entendimento, entao crie class sem caracteristicas e tenha cuidado em dar os nomes
+
+#JS
+    -> Evite o use de VAR quando criada uma váriavel, o fato de você colocar VAR é que ela se torna global e pode ser acessada por todos, isso acaba gerando RISCO, então é bom evitar seu usando
+
+    -> Sempre divida grandes tarefas em pequenas funções, isso facilita a reutilização futura
+
+    -> Evite a alteração do CSS de uma tag direto no JS, use outras maneiras de alterar o JS como dar uma add em uma nova class
+
+    -> Pense bem quando aplicar == ou ===
+        """
+        Tem uma boa diferenca esse dois 
+        == -> Compara valores, isso é, ele vai entender que 1 é igual a "1"
+        === -> Ele vai entender que são duas coisas diferentes, pois 1 é um inteiro e "1" é 1 porém uma string, ele vai enteder que são duas coisas diferentes
+        """
+
+#PHP:
+    -> Evite o use de GET para enviar informações! GET fica no URL da página recebida, isso é, valores possiveis de serem acessados e alterados de forma facil, se for enviar alguma infor, use POST ou SESSION, isso torna a visualização e alteração mais dificil
+
+    -> Sempre use PHP_EOL quando quiser uma quebra de linha, pois PHP_EOL é um quebra de linha que o Shell PHP adquire do sistema atual em que esta 
+
+    -> Quando for acessar um banco use PDO, PDO é uma forma generica de acessar um banco de dados, se mudar um banco de Mysql para Mongo de uma hora para outras, necessitarias reescrever varias chamadas, se usar o PDO, nos só precisariamos mudar alguma chamadas mais especificas, isso evita retrabalho
+
+    -> Pense bem quando aplicar == ou ===
+        """
+        Tem uma boa diferenca esse dois 
+        == -> Compara valores, isso é, ele vai entender que 1 é igual a "1"
+        === -> Ele vai entender que são duas coisas diferentes, pois 1 é um inteiro e "1" é 1 porém uma string, ele vai enteder que são duas coisas diferentes
+        """
+
+    -> Evite o use de funcoes depreciadas 
+
+#Python -> Flask ou DJango
+    -> Respeite o PEP8, esses são normas do Python 
+
+
+#Links de referencia:
+    -> https://medium.com/@gabrielmoraes_81219/boas-pr%C3%A1ticas-para-programa%C3%A7%C3%A3o-web-html-e-css-c2a62f1b9560
+    -> http://br.phptherightway.com/
+    -> https://www.w3.org/
